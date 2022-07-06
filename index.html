@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel="stylesheet" href="assets/css/plugins.min.css" media="all">
+  <link rel="stylesheet" href="assets/css/app.min.css" media="all">
+  <link rel="stylesheet" href="assets/css/ie.min.css" media="all">
+  <link rel="icon" href="assets/img/favicon.ico">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer">
+  <title>Admin template | Test Page</title>
+</head>
+
+<body>
+  <main class="page-wrap">
+    <div id="login-page">
+      <div class="login">
+        <h2 class="login-title">Login</h2>
+        <p class="notice">Please login to access the dashboard (username & password : admin)</p>
+        <form class="form-login" method="get" action="dashboard.html" onsubmit="return validation();">
+          <div class="input-email">
+            <input class="input" type="text" name="email" placeholder="Enter your e-mail" id="input_text">
+          </div>
+          <div class="input-password">
+            <input class="input" type="password" name="password" placeholder="Enter your password" id="input_password" required>
+          </div>
+          <div class="checkbox">
+            <label for="remember">
+              <input id="remember" type="checkbox" name="remember">Remember me
+            </label>
+          </div><!-- <button type="submit" onclick="window.open('dashboard.html')">Sign in</button> -->
+          <div class="input_wrap">
+            <span class="error_msg">Incorrect username or password. Please try again</span>
+            <input type="submit" id="login_btn" class="btn disabled" value="Login" disabled="true">
+          </div>
+        </form>
+        <a href="#">Forgot your password?</a>
+      </div>
+      <div class="background">
+        <div class="title-outer">
+          <h1>Star Health</h1>
+          <h2>Strong health systems are central to achieving better health outcomes</h2>
+        </div>
+      </div>
+    </div>
+  </main>
+  <script defer="defer" src="assets/js/jquery.min.js"></script>
+  <script defer="defer" src="assets/js/plugins.min.js"></script>
+  <script defer="defer" src="assets/js/bootstrap.bundle.min.js"></script>
+  <script>function validation() {
+              var input_text = document.querySelector("#input_text");
+              var input_password = document.querySelector("#input_password");
+              var error_msg = document.querySelector(".error_msg");
+              const fieldValue = 'admin';
+        
+              if (input_text.value === fieldValue || input_password.value === fieldValue) {
+                return true;
+              }
+              else {
+                error_msg.style.display = "inline-block";
+                input_text.style.border = "1px solid #f74040";
+                input_password.style.border = "1px solid #f74040";
+                return false;
+              }
+        
+            }
+        
+            var input_fields = document.querySelectorAll(".input");
+            var login_btn = document.querySelector("#login_btn");
+        
+            input_fields.forEach(function (input_item) {
+              input_item.addEventListener("input", function () {
+                if (input_item.value.length >= 1) {
+                  login_btn.disabled = false;
+                  login_btn.className = "btn enabled"
+                }
+              })
+            })</script>
+</body>
+
+</html>
